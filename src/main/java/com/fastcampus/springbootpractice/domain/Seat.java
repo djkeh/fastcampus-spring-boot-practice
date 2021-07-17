@@ -6,5 +6,5 @@ import lombok.ToString;
 @AllArgsConstructor(staticName = "of")
 @ToString
 public class Seat {
-    private final Car car;
+    @ToString.Exclude private final Car car;
 }
