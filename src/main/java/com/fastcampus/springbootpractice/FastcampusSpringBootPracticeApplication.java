@@ -4,9 +4,6 @@ import com.fastcampus.springbootpractice.properties.MyProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.core.metrics.jfr.FlightRecorderApplicationStartup;
 
 import javax.annotation.PostConstruct;
 
@@ -21,10 +18,7 @@ public class FastcampusSpringBootPracticeApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(FastcampusSpringBootPracticeApplication.class);
-//        application.setApplicationStartup(new FlightRecorderApplicationStartup());
-        application.setApplicationStartup(new BufferingApplicationStartup(1000));
-        application.run(args);
+        SpringApplication.run(FastcampusSpringBootPracticeApplication.class, args);
     }
 
     @PostConstruct
