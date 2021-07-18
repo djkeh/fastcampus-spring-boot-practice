@@ -5,10 +5,10 @@ import com.fastcampus.springbootpractice.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.cache.annotation.EnableCaching;
-
-import javax.annotation.PostConstruct;
+import org.springframework.context.event.EventListener;
 
 @RequiredArgsConstructor
 @EnableCaching
@@ -23,7 +23,7 @@ public class FastcampusSpringBootPracticeApplication {
         SpringApplication.run(FastcampusSpringBootPracticeApplication.class, args);
     }
 
-    @PostConstruct
+    @EventListener(ApplicationReadyEvent.class)
     public void init() {
 //        System.out.println("내 키는: " + myProperties.getHeight());
         studentService.printStudent("jack");
