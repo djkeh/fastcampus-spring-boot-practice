@@ -21,7 +21,7 @@ public class FastcampusSpringBootPracticeApplication {
 
     @PostConstruct
     public void init() {
-        System.out.println("내 키는: " + myProperties.getHeight());
+//        System.out.println("내 키는: " + myProperties.getHeight());
     }
 
 }

@@ -14,8 +14,8 @@ public class SortService {
 
 
     public SortService(@Qualifier("bubbleSort") Sort<String> sort, CustomProperties customProperties) {
-        System.out.println("프로퍼티: " + customProperties.getDuration().toMillis() + " ms");
-        System.out.println("구현체: " + sort.getClass().getName());
+//        System.out.println("프로퍼티: " + customProperties.getDuration().toMillis() + " ms");
+//        System.out.println("구현체: " + sort.getClass().getName());
         this.sort = sort;
     }
 
