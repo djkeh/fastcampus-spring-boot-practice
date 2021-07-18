@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 
-@RequiredArgsConstructor(staticName = "of")
+@RequiredArgsConstructor
 @Repository
 public class StudentRepository {
 
