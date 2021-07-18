@@ -3,9 +3,11 @@ package com.fastcampus.springbootpractice.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @AllArgsConstructor(staticName = "of")
 @Data
-public class Student {
+public class Student implements Serializable {
     private String name;
     private Integer age;
     private Grade grade;
