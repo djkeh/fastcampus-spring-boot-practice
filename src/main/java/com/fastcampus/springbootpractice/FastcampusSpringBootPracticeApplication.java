@@ -24,12 +24,12 @@ public class FastcampusSpringBootPracticeApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void init() {
 //        System.out.println("내 키는: " + myProperties.getHeight());
-        studentService.printStudent("jack");
-        studentService.printStudent("jack");
-        studentService.printStudent("jack");
-        studentService.printStudent("fred");
-        studentService.printStudent("cassie");
-        studentService.printStudent("cassie");
+//        studentService.printStudent("jack");
+//        studentService.printStudent("jack");
+//        studentService.printStudent("jack");
+//        studentService.printStudent("fred");
+//        studentService.printStudent("cassie");
+//        studentService.printStudent("cassie");
     }
 
 }
