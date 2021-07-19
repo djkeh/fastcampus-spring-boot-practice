@@ -22,8 +22,8 @@ public class FastcampusSpringBootPracticeApplication {
     public FastcampusSpringBootPracticeApplication(
             MyProperties myProperties,
             StudentService studentService,
-            @Value("${spring.datasource.username}") String username,
-            @Value("${spring.datasource.password}") String password
+            @Value("${spring.datasource.username:}") String username,
+            @Value("${spring.datasource.password:}") String password
     ) {
         this.myProperties = myProperties;
         this.studentService = studentService;
@@ -44,8 +44,8 @@ public class FastcampusSpringBootPracticeApplication {
 //        studentService.printStudent("fred");
 //        studentService.printStudent("cassie");
 //        studentService.printStudent("cassie");
-        System.out.println("user: " + username);
-        System.out.println("pw: " + password);
+//        System.out.println("user: " + username);
+//        System.out.println("pw: " + password);
     }
 
 }
