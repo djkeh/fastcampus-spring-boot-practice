@@ -13,6 +13,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Bean
     public RedisCacheConfiguration redisCacheConfiguration() {
         return RedisCacheConfiguration.defaultCacheConfig()
+                .computePrefixWith(name -> name + ":")
                 .serializeValuesWith(SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
     }
 
