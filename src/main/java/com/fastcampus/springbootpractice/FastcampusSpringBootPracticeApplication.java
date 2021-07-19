@@ -22,8 +22,8 @@ public class FastcampusSpringBootPracticeApplication {
     public FastcampusSpringBootPracticeApplication(
             MyProperties myProperties,
             StudentService studentService,
-            @Value("${username}") String username,
-            @Value("${password}") String password
+            @Value("${spring.datasource.username}") String username,
+            @Value("${spring.datasource.password}") String password
     ) {
         this.myProperties = myProperties;
         this.studentService = studentService;
