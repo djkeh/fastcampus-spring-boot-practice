@@ -37,15 +37,15 @@ public class FastcampusSpringBootPracticeApplication {
     @Bean
     public ApplicationRunner applicationRunner() {
         return args -> {
-            System.out.println("내 키는: " + myProperties.getHeight());
-    //        studentService.printStudent("jack");
-    //        studentService.printStudent("jack");
-    //        studentService.printStudent("jack");
-    //        studentService.printStudent("fred");
-    //        studentService.printStudent("cassie");
-    //        studentService.printStudent("cassie");
-            System.out.println("user: " + username);
-            System.out.println("pw: " + password);
+//            System.out.println("내 키는: " + myProperties.getHeight());
+            studentService.printStudent("jack");
+            studentService.printStudent("jack");
+            studentService.printStudent("jack");
+            studentService.printStudent("fred");
+            studentService.printStudent("cassie");
+            studentService.printStudent("cassie");
+//            System.out.println("user: " + username);
+//            System.out.println("pw: " + password);
         };
     }
 
