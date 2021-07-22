@@ -1,0 +1,27 @@
+{
+  "properties": [
+    {
+      "name": "my.height",
+      "type": "java.lang.Integer"
+    }
+  ],
+  "hints": [
+    {
+      "name": "my.height",
+      "values": [
+        {
+          "value": 160,
+          "description": "작은 키."
+        },
+        {
+          "value": 170,
+          "description": "적당한 키."
+        },
+        {
+          "value": 180,
+          "description": "큰 키."
+        }
+      ]
+    }
+  ]
+}
