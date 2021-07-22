@@ -37,6 +37,7 @@ class FastcampusSpringBootPracticeApplicationTests {
 
     @DynamicPropertySource
     static void properties(DynamicPropertyRegistry registry) {
+        registry.add("spring.cache.type", () -> "redis");
         registry.add("spring.redis.port", () -> redisContainer.getMappedPort(6379));
     }
 
