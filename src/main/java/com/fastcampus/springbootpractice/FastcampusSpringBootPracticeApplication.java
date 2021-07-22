@@ -7,8 +7,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.annotation.Bean;
 
+@EnableConfigServer
 @ConfigurationPropertiesScan
 @SpringBootApplication
 public class FastcampusSpringBootPracticeApplication {
