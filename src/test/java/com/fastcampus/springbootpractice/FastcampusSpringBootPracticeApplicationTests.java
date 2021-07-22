@@ -1,9 +1,12 @@
 package com.fastcampus.springbootpractice;
 
+import com.fastcampus.springbootpractice.domain.Student;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -24,6 +27,9 @@ class FastcampusSpringBootPracticeApplicationTests {
     @Container
     private static final GenericContainer<?> redisContainer = new GenericContainer<>(DockerImageName.parse("redis:latest"));
 
+    @Autowired
+    private ObjectMapper mapper;
+
     @BeforeAll
     static void setup() {
         redisContainer.followOutput(new Slf4jLogConsumer(logger));
@@ -39,15 +45,18 @@ class FastcampusSpringBootPracticeApplicationTests {
         // Given
 
         // When
-        GenericContainer.ExecResult execResult1 = redisContainer.execInContainer("redis-cli", "get", "student::cassie");
-        GenericContainer.ExecResult execResult2 = redisContainer.execInContainer("redis-cli", "get", "student::fred");
-        GenericContainer.ExecResult execResult3 = redisContainer.execInContainer("redis-cli", "get", "student::jack");
-        System.out.println(execResult1.getStdout());
-        System.out.println(execResult2.getStdout());
-        System.out.println(execResult3.getStdout());
+        GenericContainer.ExecResult execResult1 = redisContainer.execInContainer("redis-cli", "get", "student:cassie");
+        GenericContainer.ExecResult execResult2 = redisContainer.execInContainer("redis-cli", "get", "student:fred");
+        GenericContainer.ExecResult execResult3 = redisContainer.execInContainer("redis-cli", "get", "student:jack");
+        Student actual1 = mapper.readValue(execResult1.getStdout(), Student.class);
+        Student actual2 = mapper.readValue(execResult2.getStdout(), Student.class);
+        Student actual3 = mapper.readValue(execResult3.getStdout(), Student.class);
 
         // Then
         assertThat(redisContainer.isRunning()).isTrue();
+        assertThat(actual1).isEqualTo(Student.of("cassie", 18, Student.Grade.A));
+        assertThat(actual2).isEqualTo(Student.of("fred", 14, Student.Grade.C));
+        assertThat(actual3).isEqualTo(Student.of("jack", 15, Student.Grade.B));
     }
 
 }
